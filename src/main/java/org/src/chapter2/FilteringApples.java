@@ -2,7 +2,9 @@ package org.src.chapter2;
 
 import java.util.*;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.toList;
 import static org.src.chapter2.FilteringApples.Color.GREEN;
 import static org.src.chapter2.FilteringApples.Color.RED;
 
@@ -34,7 +36,7 @@ public class FilteringApples {
         Predicate<Apple> greenApplePredicate = (apple) -> apple.getColor().equals(GREEN);
         Predicate<Apple> heavyApplePredicate = (apple) -> apple.getWeight() >= 150;
 
-        List<Apple> heavyGreenApples = inventory.stream().filter(greenApplePredicate.and(heavyApplePredicate)).toList();
+        List<Apple> heavyGreenApples = inventory.stream().filter(greenApplePredicate.and(heavyApplePredicate)).collect(toList());
         System.out.println("heavyGreenApples = " + heavyGreenApples);
 
         List<Apple> redApples2 = filter(inventory, new ApplePredicate() {

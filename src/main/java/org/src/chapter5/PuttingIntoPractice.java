@@ -13,6 +13,7 @@ public class PuttingIntoPractice {
         Trader mario = new Trader("Mario", "Milan");
         Trader alan = new Trader("Alan", "Cambridge");
         Trader brian = new Trader("Brian", "Cambridge");
+        Trader john = new Trader("john", "New York");
 
         List<Transaction> transactions = Arrays.asList(
                 new Transaction(brian, 2011, 300),
@@ -20,7 +21,8 @@ public class PuttingIntoPractice {
                 new Transaction(raoul, 2011, 400),
                 new Transaction(mario, 2012, 710),
                 new Transaction(mario, 2012, 700),
-                new Transaction(alan, 2012, 950)
+                new Transaction(alan, 2012, 950),
+                new Transaction(john, 2011, 950)
         );
 
         // 질의 1: 2011년부터 발생한 모든 거래를 찾아 값으로 정렬(작은 값에서 큰 값)
@@ -35,7 +37,7 @@ public class PuttingIntoPractice {
                 .map(transaction -> transaction.getTrader().getCity())
                 .distinct()
                 .collect(toList());
-        System.out.println("cities = " + cities);
+        System.out.println("hey cities = " + cities);
 
         // 질의 3: Cambridge의 모든 거래자를 찾아 이름으로 정렬
         List<Trader> traders = transactions.stream()

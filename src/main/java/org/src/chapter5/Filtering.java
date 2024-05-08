@@ -78,4 +78,6 @@ public class Filtering {
         System.out.println("Skipping elements:");
         dishesSkip2.forEach(System.out::println);
     }
+
+
 }

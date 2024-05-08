@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Function;
 
 import static java.util.Comparator.comparing;
 
@@ -49,6 +50,10 @@ public class Sorting {
         // [Apple{color=RED, weight=10}, Apple{color=RED, weight=20}, Apple{color=GREEN, weight=155}]
         inventory.sort(comparing(Apple::getWeight));
         System.out.println(inventory);
+
+        Function<Integer, Integer> multiply_3 = x -> 3 * x;
+        Function<Integer, Integer> add_2 = x -> x + 2;
+        int result = multiply_3.andThen(add_2).apply(1);
     }
 
     static class AppleComparator implements Comparator<Apple> {

@@ -2,6 +2,7 @@ package org.src.chapter4;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Dish {
     private final String name;
@@ -51,4 +52,14 @@ public class Dish {
             new Dish("salmon", false, 450, Dish.Type.FISH)
     );
 
+    public List<Dish> takeWhile(List<Dish> menu, Predicate<Dish> p) {
+        int i = 0;
+        for (Dish dish : menu) {
+            if (!p.test(dish)) {
+                return menu.subList(0, i);
+            }
+            i++;
+        }
+        return menu;
+    }
 }
